@@ -1,8 +1,8 @@
 package com.destructio.scoringbpmnexample.controller;
 
-import com.destructio.scoringbpmnexample.service.ScoringService;
 import com.destructio.scoringbpmnexample.dto.ScoringRequestDto;
 import com.destructio.scoringbpmnexample.dto.ScoringResponseDto;
+import com.destructio.scoringbpmnexample.service.ScoringService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
