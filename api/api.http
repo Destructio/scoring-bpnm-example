@@ -1,0 +1,10 @@
+### Отправить запрос на скоринг
+POST http://localhost:8080/api/v1/scoring
+Accept: application/json
+Content-Type: application/json
+
+{
+  "inn": "12312",
+  "region": "21",
+  "capital": 123123123
+}

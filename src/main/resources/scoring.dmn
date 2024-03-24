@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_0p7ysl6" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.21.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0s11vyg" name="Scoring Decision">
+    <decisionTable id="DecisionTable_1hc9yvv" hitPolicy="COLLECT">
+      <input id="InputClause_1k43n5k" label="Длинна ИНН" camunda:inputVariable="inn">
+        <inputExpression id="LiteralExpression_0a3snnf" typeRef="string">
+          <text>string length(inn)</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_10ym22b" label="Нахождение компаниии в запрещенном регионе" camunda:inputVariable="region">
+        <inputExpression id="LiteralExpression_1stz5q6" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0popup5" label="Капитал Компании" camunda:inputVariable="capital">
+        <inputExpression id="LiteralExpression_0urbui7" typeRef="long">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1t7apdp" label="Резидент РФ" camunda:inputVariable="inn">
+        <inputExpression id="LiteralExpression_15xb6pt" typeRef="string">
+          <text>substring(inn, 1, 4)</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0w3z2m9" label="Результат Скоринга" name="result" typeRef="boolean" />
+      <output id="Output_1" label="Результат Скоринга" name="comments" typeRef="string" biodi:width="192" />
+      <rule id="DecisionRule_07itzjb">
+        <description></description>
+        <inputEntry id="UnaryTests_0uhrvku">
+          <text>not("12")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18o8g1p">
+          <text>not("24")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0772xo4">
+          <text>&gt;= 5000000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xzc4lj">
+          <text>not("9909")</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1r1uoty">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0my09rv">
+          <text>"Скоринг пройден успешно!"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0cp9gm2">
+        <description></description>
+        <inputEntry id="UnaryTests_0dm6p4s">
+          <text>"12"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mlzls1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vphnk0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fhp335">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14vl7hy">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1gts0dr">
+          <text>"Компания является ИП!"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0dosdxd">
+        <description></description>
+        <inputEntry id="UnaryTests_1bgxcx4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bwfn7i">
+          <text>"24"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0a0brt8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fvaks4">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dh0k83">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0suzyh3">
+          <text>"Компания находится в запрещенном регионе (Красноярский край)!"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1j317xh">
+        <description></description>
+        <inputEntry id="UnaryTests_0yfu9ir">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ddesqs">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16q30hl">
+          <text>&lt; 5000000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qkrkaq">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06bp8p7">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0t2usod">
+          <text>"Капитал компании меньше 5 000 000!"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13j996m">
+        <description></description>
+        <inputEntry id="UnaryTests_1yffsi6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04njv9m">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00pudvg">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gkntum">
+          <text>"9909"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0lqmz7r">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_06cxr4e">
+          <text>"Компания не является резидентом РФ!"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0s11vyg">
+        <dc:Bounds height="80" width="180" x="420" y="340" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
