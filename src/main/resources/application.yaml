@@ -1,6 +1,3 @@
-logging:
-  level:
-    org.hibernate.SQL: DEBUG
 spring.application.name: scoring-bpmn-example
 camunda.bpm.admin-user:
   id: admin

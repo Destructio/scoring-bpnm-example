@@ -4,7 +4,6 @@ import com.destructio.scoringbpmnexample.dto.ScoringRequestDto;
 import com.destructio.scoringbpmnexample.dto.ScoringResponseDto;
 import com.destructio.scoringbpmnexample.entity.Scoring;
 import com.destructio.scoringbpmnexample.repository.ScoringRepository;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.camunda.bpm.dmn.engine.DmnDecision;
 import org.camunda.bpm.dmn.engine.DmnDecisionTableResult;
@@ -13,6 +12,8 @@ import org.camunda.bpm.engine.variable.VariableMap;
 import org.camunda.bpm.engine.variable.Variables;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 @RequiredArgsConstructor
 public class ScoringService {
@@ -20,7 +21,6 @@ public class ScoringService {
     private final DmnDecision scoringDecision;
     private final ScoringRepository scoringRepository;
 
-    @Transactional
     public ScoringResponseDto getScoringResults(ScoringRequestDto scoringRequest) {
 
         VariableMap variables = Variables
@@ -37,8 +37,9 @@ public class ScoringService {
                 .build();
 
         Scoring scoring = new Scoring();
-        scoring.setScoringRequest(scoringRequest);
-        scoring.setScoringResults(scoringResponse);
+        scoring.setId(UUID.randomUUID());
+        scoring.setScoringRequest(scoringRequest.toString());
+        scoring.setScoringResults(scoringResponse.toString());
         scoringRepository.save(scoring);
 
         return scoringResponse;
