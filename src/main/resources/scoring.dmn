@@ -39,7 +39,7 @@
           <text>not("9909")</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_1r1uoty">
-          <text>true</text>
+          <text>false</text>
         </outputEntry>
         <outputEntry id="LiteralExpression_0my09rv">
           <text>"Скоринг пройден успешно!"</text>
@@ -60,7 +60,7 @@
           <text></text>
         </inputEntry>
         <outputEntry id="LiteralExpression_14vl7hy">
-          <text>false</text>
+          <text>true</text>
         </outputEntry>
         <outputEntry id="LiteralExpression_1gts0dr">
           <text>"Компания является ИП!"</text>
@@ -81,7 +81,7 @@
           <text></text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0dh0k83">
-          <text>false</text>
+          <text>true</text>
         </outputEntry>
         <outputEntry id="LiteralExpression_0suzyh3">
           <text>"Компания находится в запрещенном регионе (Красноярский край)!"</text>
@@ -102,7 +102,7 @@
           <text></text>
         </inputEntry>
         <outputEntry id="LiteralExpression_06bp8p7">
-          <text>false</text>
+          <text>true</text>
         </outputEntry>
         <outputEntry id="LiteralExpression_0t2usod">
           <text>"Капитал компании меньше 5 000 000!"</text>
@@ -123,7 +123,7 @@
           <text>"9909"</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0lqmz7r">
-          <text>false</text>
+          <text>true</text>
         </outputEntry>
         <outputEntry id="LiteralExpression_06cxr4e">
           <text>"Компания не является резидентом РФ!"</text>
